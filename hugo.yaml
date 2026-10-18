@@ -19,6 +19,7 @@ params:
 
   description: "Shaurya Sen: reinforcement learning research, robot simulation and writing."
   author: Shaurya Sen
+  images: ["img/social.jpg"] # link-preview image (LinkedIn, Slack, iMessage) for pages without their own
   profileImage: img/profile.jpg # photo beside the bio; delete to hide
   homeFont: serif # serif or sans (default): font of the home page name, bio and titles
 
