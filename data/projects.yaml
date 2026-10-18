@@ -38,6 +38,22 @@
     - name: Code
       url: https://github.com/ShauryaSen/flightmare-vm
 
+- title: Search and rescue with marine robots
+  meta: West Point Robotics Research Center · 2022–2024
+  text: >-
+    Search-and-rescue autonomy for unmanned surface vessels: a MOOS-IvP pipeline that runs YOLOv5 on the boat's live
+    camera, detects people overboard and relays their GPS position. I demoed it live on the lake for NSA sponsors,
+    trained the boats with DQN for Aquaticus (capture the flag on the water), and co-authored a SPIE 2023 paper.
+  image: img/projects/usv.jpg
+  video: img/projects/usv.mp4
+  links:
+    - name: Report (PDF)
+      url: /papers/maritime-sar-report.pdf
+    - name: SPIE paper
+      url: https://doi.org/10.1117/12.2663298
+    - name: Code
+      url: https://github.com/dejaa1/SNR-yolo-moos-integration
+
 - title: Robot arm on real hardware
   meta: Cornell Physical Intelligence · 2026
   text: >-
