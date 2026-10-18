@@ -1,5 +1,5 @@
 ---
-title: "Variational Autoencoders, with a Latent Space You Can Click"
+title: "Variational Autoencoders from the Ground Up"
 date: 2026-10-14
 draft: false
 math: true
@@ -206,14 +206,6 @@ def neg_elbo(logits, x, mu, logvar):
 ```
 
 Trained with Adam (learning rate $10^{-3}$, batch size 128) for 40 epochs, which took a couple of minutes on a laptop. It ends at a −ELBO of about 138 nats per image, roughly 132 of reconstruction and 7 of KL. The decoder is about 218k parameters. Stored as float16 that's 426 KB, which the page loads and runs in plain JavaScript.
-
-## What the demo shows, and what it doesn't
-
-- **The gaps decode to real digits** because every $q_\phi(z\mid x)$ is pulled toward the same $\mathcal{N}(0,I)$ prior. That leaves no holes for the decoder to ignore, even out near the corners.
-- **Smooth interpolation** is the KL term at work. Drag from one cluster to a neighboring one and the digit morphs instead of jumping. Neighboring codes have to overlap, so the decoder learns to make the space between them meaningful.
-- **Blurry digits** are the classic VAE complaint. The decoder is rewarded for the *average* reconstruction over a neighborhood of $z$, and the average of several plausible 4s is a smudged 4. Two latent dimensions make it worse; with 16 or 32 the samples get much sharper, but you can't plot the space anymore.
-- **The decoded grid** is the decoder evaluated on an even $20\times20$ lattice of $z$. With only two dimensions, the model has to lay all ten digits out on one sheet.
-- **Overlapping clusters** (4/9 and 3/5/8 in particular) are honest. Those digits really are close in pixel space, and two dimensions don't leave room to separate them.
 
 ---
 
