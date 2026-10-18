@@ -6,7 +6,7 @@ math: true
 tags:
   - reinforcement-learning
   - policy-gradient
-summary: "From Monte Carlo estimates to REINFORCE, natural policy gradient, PPO and GRPO, with every derivation worked out."
+summary: "From Monte Carlo estimates to REINFORCE."
 ---
 Main problem: in supervised learning, you have a loss function to differentiate. In RL the reward is a black box you can only sample from. Everything else in this chapter is to handle that fact.
 

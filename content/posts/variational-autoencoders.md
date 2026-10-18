@@ -7,7 +7,7 @@ tags:
   - deep-learning
   - generative-models
   - vae
-summary: "From autoencoders to the ELBO, with a 2D-latent VAE I trained on MNIST running live in the page."
+summary: "From Autoencoder to VAE trained on MNIST"
 ---
 
 **Click or drag anywhere in the plot.** Each dot is one handwritten digit, compressed to a point in a 2D latent space.
