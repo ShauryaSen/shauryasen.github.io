@@ -13,6 +13,22 @@ body:has(.home) { background: var(--theme); }
   margin: 56px 0 20px;
 }
 
+.intro { display: grid; grid-template-columns: 1fr auto; column-gap: 36px; }
+.intro h1 { grid-column: 1; grid-row: 1; }
+.intro .bio { grid-column: 1; grid-row: 2; }
+.intro .links { grid-column: 1; grid-row: 3; }
+.intro .avatar {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: center;
+  width: 184px;
+  height: 184px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0;
+  border: 1px solid var(--border);
+}
+
 .intro h1 {
   font-size: 34px;
   font-weight: 650;
@@ -27,7 +43,9 @@ body:has(.home) { background: var(--theme); }
   margin-bottom: 12px;
 }
 
-.links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 18px; }
+.intro .bio p:last-child { margin-bottom: 0; }
+
+.links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 30px; }
 
 .links a,
 .project-links a,
@@ -105,6 +123,8 @@ body:has(.home) { background: var(--theme); }
 
 @media (max-width: 640px) {
   .home { padding-top: 8px; }
+  .intro { display: block; }
+  .intro .avatar { width: 112px; height: 112px; margin: 0 0 16px; }
   .intro h1 { font-size: 28px; }
   .project { grid-template-columns: 1fr; gap: 14px; }
 }

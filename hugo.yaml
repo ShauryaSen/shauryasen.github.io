@@ -19,6 +19,7 @@ params:
 
   description: "Shaurya Sen: reinforcement learning research, robot simulation and writing."
   author: Shaurya Sen
+  profileImage: img/profile.jpg # photo beside the bio; delete to hide
   homeFont: serif # serif or sans (default): font of the home page name, bio and titles
 
   # links under the bio on the home page (layouts/index.html)

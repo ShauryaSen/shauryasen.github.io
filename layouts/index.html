@@ -1,6 +1,9 @@
 {{- define "main" }}
 <div class="home{{ with site.Params.homeFont }} {{ . }}{{ end }}">
   <section class="intro">
+    {{- with site.Params.profileImage }}
+    <img class="avatar" src="{{ . | relURL }}" alt="{{ site.Title }}" width="184" height="184">
+    {{- end }}
     <h1>{{ site.Title }}</h1>
     <div class="bio">{{ .Content }}</div>
     <nav class="links" aria-label="Elsewhere">
