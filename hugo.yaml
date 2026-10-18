@@ -1,0 +1,73 @@
+baseURL: "https://shauryasen.com/"
+languageCode: en-us
+title: "Shaurya Sen"
+theme: PaperMod
+
+pagination:
+  pagerSize: 10
+
+params:
+  env: production
+  defaultTheme: auto # auto switches between light/dark based on OS
+  showReadingTime: true
+  showShareButtons: false
+  showPostNavLinks: true
+  showBreadCrumbs: true
+  showCodeCopyButtons: true
+  showToc: true
+  tocOpen: false
+
+  description: "Shaurya Sen: reinforcement learning research, robot simulation and writing."
+  author: Shaurya Sen
+  homeFont: serif # serif or sans (default): font of the home page name, bio and titles
+
+  # links under the bio on the home page (layouts/index.html)
+  homeLinks:
+    - name: Resume
+      url: resume.pdf
+    - name: GitHub
+      url: https://github.com/ShauryaSen
+    - name: LinkedIn
+      url: https://www.linkedin.com/in/shaurya-sen
+    - name: Email
+      url: mailto:shaurya.sen12@gmail.com
+
+  cover:
+    linkFullImages: true
+
+  assets:
+    disableHLJS: true
+
+  math: true # load KaTeX on every page; set math: false in a post's front matter to skip it
+
+markup:
+  highlight:
+    noClasses: false
+  goldmark:
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - ['\[', '\]']
+            - ['$$', '$$']
+          inline:
+            - ['\(', '\)']
+            - ['$', '$']
+
+menu:
+  main:
+    - identifier: writing
+      name: Writing
+      url: /posts/
+      weight: 10
+    - identifier: resume
+      name: Resume
+      url: /resume.pdf
+      weight: 20
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # required for search

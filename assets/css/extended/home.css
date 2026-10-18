@@ -1,0 +1,122 @@
+/* Home page: one column, quiet type, work first. PaperMod's tokens (--primary, --secondary, --border, --theme) keep it in step with light/dark. */
+
+body:has(.home) { background: var(--theme); }
+
+.home { padding-top: 24px; }
+
+.home h2 {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin: 56px 0 20px;
+}
+
+.intro h1 {
+  font-size: 34px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.intro .bio p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--content);
+  margin-bottom: 12px;
+}
+
+.links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 18px; }
+
+.links a,
+.project-links a,
+.writing .more {
+  color: var(--primary);
+  font-size: 15px;
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1px;
+  transition: border-color 0.15s;
+}
+
+.links a:hover,
+.project-links a:hover,
+.writing .more:hover { border-color: var(--primary); }
+
+.project {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 22px 0;
+  border-top: 1px solid var(--border);
+}
+
+.project:first-of-type { border-top: none; padding-top: 0; }
+
+.project .media {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+}
+
+.project .media img,
+.project .media video { display: block; width: 100%; height: auto; margin: 0; }
+
+.project h3 { font-size: 17px; font-weight: 600; line-height: 1.35; margin: 0 0 2px; }
+
+.project .meta { font-size: 13px; color: var(--secondary); margin: 0 0 8px; }
+
+.project p { font-size: 15px; line-height: 1.6; color: var(--content); margin: 0 0 8px; }
+
+.project-links { display: flex; gap: 16px; }
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  vertical-align: 2px;
+  margin-left: 4px;
+}
+
+.writing ul { list-style: none; padding: 0; margin: 0; }
+
+.writing li { padding: 12px 0; border-top: 1px solid var(--border); }
+
+.writing li:first-child { border-top: none; padding-top: 0; }
+
+.writing li > a { font-size: 16px; font-weight: 600; color: var(--primary); }
+
+.writing li > a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.writing .date { font-size: 13px; color: var(--secondary); margin-left: 8px; }
+
+.writing li p { font-size: 15px; line-height: 1.55; color: var(--secondary); margin: 4px 0 0; }
+
+.writing .more { display: inline-block; margin-top: 16px; }
+
+@media (max-width: 640px) {
+  .home { padding-top: 8px; }
+  .intro h1 { font-size: 28px; }
+  .project { grid-template-columns: 1fr; gap: 14px; }
+}
+
+/* Serif variant: set params.homeFont: serif in hugo.yaml */
+.home.serif h1,
+.home.serif .bio p,
+.home.serif .project h3,
+.home.serif .writing li > a {
+  font-family: "Source Serif 4", Georgia, serif;
+}
+.home.serif h1 { font-weight: 600; font-size: 38px; letter-spacing: -0.01em; }
+.home.serif .bio p { font-size: 18.5px; }
+.home.serif .project h3 { font-size: 19px; }
+.home.serif .writing li > a { font-size: 18px; }

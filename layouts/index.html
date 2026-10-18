@@ -1,0 +1,64 @@
+{{- define "main" }}
+<div class="home{{ with site.Params.homeFont }} {{ . }}{{ end }}">
+  <section class="intro">
+    <h1>{{ site.Title }}</h1>
+    <div class="bio">{{ .Content }}</div>
+    <nav class="links" aria-label="Elsewhere">
+      {{- range site.Params.homeLinks }}
+      {{- $external := hasPrefix .url "http" }}
+      <a href="{{ if $external }}{{ .url }}{{ else }}{{ .url | relURL }}{{ end }}"{{ if $external }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>
+      {{- end }}
+    </nav>
+  </section>
+
+  <section class="work">
+    <h2>Selected work</h2>
+    {{- range site.Data.projects }}
+    {{- if not .hidden }}
+    {{- $p := . }}
+    <article class="project">
+      <div class="media">
+        {{- if $p.video }}
+        <video src="{{ $p.video | relURL }}" poster="{{ $p.image | relURL }}" autoplay muted loop playsinline preload="metadata" aria-label="{{ $p.title }}"></video>
+        {{- else }}
+        <img src="{{ $p.image | relURL }}" alt="{{ $p.title }}" loading="lazy">
+        {{- end }}
+      </div>
+      <div class="body">
+        <h3>{{ $p.title }}{{ if $p.wip }} <span class="tag">In progress</span>{{ end }}</h3>
+        <p class="meta">{{ $p.meta }}</p>
+        <p>{{ $p.text }}</p>
+        {{- with $p.links }}
+        <p class="project-links">
+          {{- range . }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>{{ end }}
+        </p>
+        {{- end }}
+      </div>
+    </article>
+    {{- end }}
+    {{- end }}
+  </section>
+
+  {{- $posts := where site.RegularPages "Section" "posts" }}
+  {{- with $posts }}
+  <section class="writing">
+    <h2>Writing</h2>
+    <ul>
+      {{- range first 3 $posts.ByDate.Reverse }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span class="date">{{ .Date.Format "Jan 2006" }}</span>
+        {{- with .Summary }}<p>{{ . | plainify | truncate 160 }}</p>{{ end }}
+      </li>
+      {{- end }}
+    </ul>
+    {{- if gt (len $posts) 3 }}<a class="more" href="{{ "posts/" | relURL }}">All posts →</a>{{ end }}
+  </section>
+  {{- end }}
+</div>
+<script>
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll(".home video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); v.controls = true; });
+  }
+</script>
+{{- end }}

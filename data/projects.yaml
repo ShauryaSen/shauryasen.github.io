@@ -1,0 +1,49 @@
+# Project cards on the home page, in display order.
+# Fields: title, meta (one short line), text, image (poster/still), video (optional mp4, loops muted),
+# links (name + url), wip (true shows a "In progress" tag), hidden (true keeps it off the page).
+
+- title: Unbounded wind for balloon navigation
+  meta: Dean Lab, Cornell · 2026
+  text: >-
+    A conditional diffusion model trained on ERA5 that generates realistic stratospheric wind for
+    training balloon-navigation RL agents, extended with InfiniteDiffusion to effectively unbounded 4D wind fields.
+    On a 12-metric realism benchmark it has 2.5× finer effective resolution than the Balloon Learning Environment's VAE.
+  image: img/projects/wind.jpg
+  video: img/projects/wind.mp4
+  links:
+    - name: Code
+      url: https://github.com/sdean-group/balloon-env-dev
+
+- title: Teaching a hexapod to walk
+  meta: Cornell Physical Intelligence · 2026
+  text: >-
+    An Isaac Lab locomotion environment for our six-legged robot. PPO from scratch learns to stand but never to walk;
+    cloning a scripted tripod gait (BC + DAgger) and fine-tuning with PPO gives a policy that walks on command.
+    Replacing 153 collision meshes with 19 primitives made simulation 2.4–4.5× faster.
+  image: img/projects/hexapod.jpg
+  video: img/projects/hexapod.mp4
+  links:
+    - name: Code
+      url: https://github.com/ShauryaSen/hexapod-locomotion
+
+- title: Autonomous drone racing
+  meta: Personal project · 2026
+  text: >-
+    A replication of Song et al. (IROS 2021) in the Flightmare simulator with PPO. The 8-gate circle track is solved
+    two ways, with a hand-built curriculum and with an Optuna sweep. Along the way I found and fixed a collision check
+    that treated the square gates as circles.
+  image: img/projects/drone.jpg
+  video: img/projects/drone.mp4
+  links:
+    - name: Code
+      url: https://github.com/ShauryaSen/flightmare-vm
+
+- title: Robot arm on real hardware
+  meta: Cornell Physical Intelligence · 2026
+  text: >-
+    My club's first runs on real hardware. Here we have a B601-RS arm picking up a roll of tape.
+    Next up is running vision-language-action policies on it.
+  image: img/projects/arm.jpg
+  video: img/projects/arm.mp4
+  wip: true
+  links: []

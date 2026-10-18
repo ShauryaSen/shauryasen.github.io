@@ -1,0 +1,22 @@
+.callout {
+  --callout-color: 68, 138, 255;
+  margin: 1.25rem 0;
+  padding: 0.6rem 1rem;
+  border-left: 4px solid rgb(var(--callout-color));
+  border-radius: var(--radius);
+  background: rgba(var(--callout-color), 0.08);
+}
+.callout-tip, .callout-success { --callout-color: 8, 185, 78; }
+.callout-warning, .callout-caution { --callout-color: 236, 117, 0; }
+.callout-danger, .callout-bug { --callout-color: 233, 49, 71; }
+.callout-example, .callout-question, .callout-derivation { --callout-color: 120, 82, 238; }
+.callout-result { --callout-color: 8, 185, 78; }
+.callout-title {
+  font-weight: 600;
+  color: rgb(var(--callout-color));
+}
+summary.callout-title { cursor: pointer; }
+.callout-body { margin-top: 0.5rem; }
+.callout:not([open]) > .callout-body { margin-top: 0; }
+.callout-body > :last-child { margin-bottom: 0; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }

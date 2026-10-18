@@ -1,0 +1,7 @@
+{{- /* Math inside callouts keeps its "> " blockquote markers in .Inner; strip them before KaTeX sees it. */ -}}
+{{- $math := replaceRE `(?m)^[ \t]*>[ \t]?` "" .Inner -}}
+{{- if eq .Type "block" -}}
+<div class="math-display">\[{{ $math }}\]</div>
+{{- else -}}
+\({{ $math }}\)
+{{- end -}}

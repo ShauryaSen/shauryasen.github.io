@@ -1,0 +1,24 @@
+{{- /* Embed a standalone demo page from static/: {{< demo-frame src="demos/x/" title="..." height="900" >}} */ -}}
+{{- $src := .Get "src" | relURL -}}
+<figure class="demo-frame">
+  <iframe src="{{ $src }}" title="{{ .Get "title" }}" loading="lazy" style="height: {{ .Get "height" | default "800" }}px"></iframe>
+  <figcaption><a href="{{ $src }}" target="_blank" rel="noopener">Open full screen ↗</a></figcaption>
+</figure>
+<style>
+.demo-frame { margin: 1.5rem 0 2rem; }
+.demo-frame iframe { width: 100%; border: 1px solid var(--border); border-radius: var(--radius); background: var(--entry); display: block; }
+.demo-frame figcaption { margin-top: 0.5rem; font-size: 0.85rem; text-align: right; }
+</style>
+<script>
+(() => {
+  // Same-origin demo: size the frame to its content so it never scrolls inside the post.
+  const frame = document.currentScript.previousElementSibling.previousElementSibling.querySelector('iframe');
+  frame.addEventListener('load', () => {
+    const doc = frame.contentDocument;
+    if (!doc) return;
+    const fit = () => { frame.style.height = doc.body.scrollHeight + 32 + 'px'; };
+    fit();
+    new ResizeObserver(fit).observe(doc.body);
+  });
+})();
+</script>
